@@ -12,7 +12,49 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 26.1 (Org mode 9.1.14)
 
+* Description
+  WORK IN PROGRESS
+
+  Dockerfile to create a docker image containing open source mritools for data handling, reconstruction and post-processing
+
 * Includes
-  - bart
-  - ismrmrd
-  - anaconda-python
+  - [X] ubuntu (latest = 18.04 LTS)
+  - [X] anaconda-python (Anaconda3-5.3.0-Linux-x86_64)
+    - [X] pydicom
+    - [X] nibabel
+    - [X] SimpleITK
+    - [X] matplotlib2tikz
+  - [X] bart (v0.4.03)
+  - [X] ismrmrd (v1.4)
+  - [X] ismrmrd-python-tools
+  - [X] ismrmrd-python
+  - [X] philips_to_ismrmrd
+  - [X] dcm2niix
+
+* Usage
+
+** Install Docker
+   [[https://www.docker.com/get-started][Get Started with Docker | Docker]]
+
+** Clone docker image
+   #+BEGIN_SRC sh
+     docker pull maxdiefenbach/mritools
+   #+END_SRC
+
+** Create and run docker container
+   #+BEGIN_SRC sh
+     docker run -ti mritools
+   #+END_SRC
+
+** Or build your own image
+   tbc ...
+# Dockerfile to build container with MRI tools
+# $ docker image build -t <image_name>[:<tag>] .
+# $ docker run -ti <image_name>[:<tag>]
+# $ docker tag <image_name> <dockerhub_account>/<image_name>
+# $ docker push <dockerhub_account>/<image_name>
+
+* Resources
+  - [[https://docs.docker.com/develop/develop-images/dockerfile_best-practices/][Best practices for writing Dockerfiles | Docker Documentation]]
+  - [[https://kimh.github.io/blog/en/docker/gotchas-in-writing-dockerfile-en/][Gotchas in Writing Dockerfile | kim hirokuni]]
+  - [[https://dev.to/thejessleigh/dockerizing-a-simple-python-process-2gdk][Dockerizing a Simple Python Process - DEV Community]]
